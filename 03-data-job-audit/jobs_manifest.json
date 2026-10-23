@@ -1,0 +1,15 @@
+{
+  "_note": "Synthetic manifest. Job names are generic; timings mirror the shape of a real audit (5 of 10 failing, 4 stale for 3-23 days).",
+  "jobs": [
+    {"name": "ingest_webhooks",        "cadence_hours": 1,   "last_output_at": "2026-08-21T07:42:00", "last_exit_code": 0, "last_rows": 412,  "typical_rows": 380},
+    {"name": "daily_bars_export",      "cadence_hours": 24,  "last_output_at": "2026-08-18T06:00:00", "last_exit_code": 0, "last_rows": 0,    "typical_rows": 23400},
+    {"name": "excursion_metrics",      "cadence_hours": 24,  "last_output_at": "2026-08-20T23:10:00", "last_exit_code": 0, "last_rows": 1210, "typical_rows": 1180},
+    {"name": "anomaly_flagging",       "cadence_hours": 24,  "last_output_at": "2026-08-20T23:20:00", "last_exit_code": 0, "last_rows": 37,   "typical_rows": 41},
+    {"name": "weekly_strategy_report", "cadence_hours": 168, "last_output_at": "2026-07-29T18:00:00", "last_exit_code": 0, "last_rows": 87,   "typical_rows": 87},
+    {"name": "journal_sync",           "cadence_hours": 24,  "last_output_at": "2026-08-14T05:30:00", "last_exit_code": 0, "last_rows": 160,  "typical_rows": 170},
+    {"name": "dashboard_snapshot",     "cadence_hours": 6,   "last_output_at": "2026-08-21T06:00:00", "last_exit_code": 0, "last_rows": 52,   "typical_rows": 240},
+    {"name": "backup_db",              "cadence_hours": 24,  "last_output_at": "2026-08-21T02:00:00", "last_exit_code": 0, "last_rows": 1,    "typical_rows": 1},
+    {"name": "edge_decay_report",      "cadence_hours": 168, "last_output_at": "2026-08-17T12:00:00", "last_exit_code": 0, "last_rows": 23,   "typical_rows": 23},
+    {"name": "tape_compaction",        "cadence_hours": 24,  "last_output_at": "2026-08-11T03:00:00", "last_exit_code": 1, "last_rows": null, "typical_rows": 74}
+  ]
+}

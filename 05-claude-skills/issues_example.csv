@@ -1,0 +1,6 @@
+example_id,skill,type,what_happened,fix,status
+1,reconciliation-report,owner_correction,Dashboard count (50) treated as the true total; it was capped by a page limit,Added rule: document totals that should not be reconciled,closed
+2,reconciliation-report,failure,Duplicate feed row counted as two mismatches,Dedupe before field checks,closed
+3,video-daily,owner_correction,Slow zoom on still images read as low effort,Every scene built from real images with motion; check added to pre-publish,closed
+4,follow-up-assistant,workaround,Import file carried columns not on the allow-list,Drop non-allow-listed columns in code before anything else runs,closed
+5,job-applications,failure,Typed dropdown filter picked the wrong option,Read every select back before submit,closed

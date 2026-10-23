@@ -1,0 +1,9 @@
+lead_id,first_name,stage,last_contact,opted_out,preferred_channel,ssn,date_of_birth,annual_income
+L001,Avery,new,2026-10-21,no,text,000-00-0001,1990-01-01,85000
+L002,Jordan,docs_requested,2026-10-22,no,email,000-00-0002,1985-02-02,120000
+L003,Casey,docs_requested,2026-10-19,no,text,000-00-0003,1979-03-03,64000
+L004,Riley,pre_approved,2026-10-15,no,text,000-00-0004,1992-04-04,98000
+L005,Morgan,pre_approved,2026-10-21,no,email,000-00-0005,1988-05-05,150000
+L006,Quinn,under_contract,2026-10-20,STOP,text,000-00-0006,1995-06-06,72000
+L007,Skyler,locked,2026-10-18,no,text,000-00-0007,1983-07-07,110000
+L008,Devon,closed,2026-09-30,no,email,000-00-0008,1975-08-08,205000
