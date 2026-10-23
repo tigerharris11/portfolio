@@ -67,7 +67,7 @@ class TestFollowUpEngine(unittest.TestCase):
         drafts = self.eng.todays_drafts(self.leads, datetime(2026, 10, 23, 10, 30))
         ids = {d.lead_id for d in drafts}
         self.assertNotIn("L006", ids)   # STOP
-        self.assertNotIn("L008", ids)   # closed
+        self.assertNotIn("L008", ids)   # do_not_contact
         self.assertEqual(ids, {"L001", "L003", "L004", "L007"})
 
     def test_quiet_hours(self):

@@ -2,10 +2,10 @@
 
 Operations and data analyst in Chicago. Five years in mortgage lending, reviewing financial files
 and clearing discrepancies against hard deadlines. In 2026 I started building the tools myself:
-a reconciliation-heavy trading-data platform, an AI follow-up assistant for a loan pipeline, and a
+a reconciliation-heavy trading-data platform, an AI follow-up assistant for my own past clients, and a
 daily AI video pipeline that now runs three YouTube channels.
 
-My production code is private because it touches borrower data, financial accounts or API keys.
+My production code is private because it touches client contact data, financial accounts or API keys.
 **This repo rebuilds the core of each project on synthetic data so you can run it, read it, and
 check it.** Every project runs with plain Python and is covered by a test suite.
 
@@ -14,7 +14,7 @@ check it.** Every project runs with plain Python and is covered by a test suite.
 | # | Project | What it shows | Skills |
 |---|---|---|---|
 | 01 | [SQL reconciliation and anomaly triage](01-sql-reconciliation) | Finds every disagreement between two sources, classifies it, and checks itself against a known answer | SQL, CTEs, joins, pandas, data quality |
-| 02 | [Follow-up cadence engine](02-follow-up-engine) | The core of an AI assistant I use daily for a loan pipeline: drafts only, a person approves every send, sensitive fields dropped by code | Python, rules engines, human-in-the-loop, data minimization |
+| 02 | [Follow-up cadence engine](02-follow-up-engine) | The core of an AI assistant I built to stay in touch with my own past clients: drafts only, a person approves every send, sensitive fields dropped by code | Python, rules engines, human-in-the-loop, data minimization |
 | 03 | [Data job audit](03-data-job-audit) | Catches jobs that "succeed" but write nothing, go stale, or shrink | Python, monitoring, root-cause analysis |
 | 04 | [AI video pipeline architecture](04-ai-pipeline-architecture) | Multi-agent pipeline with a critique loop, rule checks and a human approval gate; shared render queue | AI orchestration, LLM APIs, system design |
 | 05 | [Claude skills and the tune loop](05-claude-skills) | 80 agent skills across 9 project areas, and the loop that turns every correction into a written rule | Prompt and agent design, Claude Code, process improvement |
@@ -57,4 +57,4 @@ python -m unittest discover -s tests -v
 
 [LinkedIn](https://www.linkedin.com/in/tiger-harris-8a45b3b4) · Chicago, IL · open to operations, analyst and AI-automation roles
 
-*All data in this repository is synthetic. No borrower, customer or account data is included.*
+*All data in this repository is synthetic. No client, customer or account data is included.*

@@ -1,15 +1,14 @@
 """Follow-up cadence engine: decides who gets a touch today and drafts it for human approval.
 
-A public, simplified rebuild of the pattern behind an AI follow-up assistant I run for a
-mortgage pipeline. The production version is private because it touches borrower data;
+A public, simplified rebuild of the pattern behind an AI follow-up assistant I built for my own
+past clients and leads. The production version is private because it holds real contact details;
 this one runs on fake leads and keeps the same guardrails:
 
   1. Allow-list import: only known-safe columns are kept. Anything else (SSN, DOB, income,
      account numbers) is dropped by code before it can reach a template or a model.
   2. Human approval: the engine only ever produces drafts. send() refuses unapproved drafts.
   3. Opt-out and quiet hours: STOP means stop, and nothing is drafted outside 9am-8pm.
-  4. No invented numbers: a payment breakdown refuses to run without figures from the
-     system of record.
+  4. No invented numbers: a payment breakdown refuses to estimate without verified figures.
   5. Same cadence for everyone: the rules depend on stage and dates, never on who the person is.
 """
 from __future__ import annotations
@@ -23,20 +22,16 @@ SAFE_COLUMNS = {"lead_id", "first_name", "stage", "last_contact", "opted_out", "
 
 # Days to wait after the last touch, by stage.
 CADENCE_DAYS = {
-    "new": 1,
-    "docs_requested": 2,
-    "pre_approved": 4,
-    "under_contract": 2,
-    "locked": 3,
-    "closed": None,          # no follow-up
+    "new_inquiry": 1,
+    "application_started": 3,
+    "past_client": 90,       # periodic check-in
+    "do_not_contact": None,  # never
 }
 
 TEMPLATES = {
-    "new": "Hi {first_name}, thanks for reaching out. What's the best time this week to go over your options?",
-    "docs_requested": "Hi {first_name}, quick check on the documents we discussed. Anything I can help you find?",
-    "pre_approved": "Hi {first_name}, your pre-approval is still active. Have you found any homes you like?",
-    "under_contract": "Hi {first_name}, congrats again on the contract. Is there anything you need from me before the next step?",
-    "locked": "Hi {first_name}, your rate is locked. Have you had a chance to look at the open conditions?",
+    "new_inquiry": "Hi {first_name}, thanks for reaching out. What's the best time this week to talk through your options?",
+    "application_started": "Hi {first_name}, just checking in on your application. Anything I can help with?",
+    "past_client": "Hi {first_name}, it's been a little while. How's everything going with the house?",
 }
 
 QUIET_START, QUIET_END = time(9, 0), time(20, 0)
@@ -97,11 +92,11 @@ def send(draft: Draft, transport=print) -> None:
 
 
 def payment_breakdown(figures: dict | None) -> dict:
-    """Monthly payment from system-of-record figures. Refuses to guess."""
+    """Monthly payment from verified figures. Refuses to guess."""
     required = ("loan_amount", "annual_rate", "term_months", "monthly_tax", "monthly_insurance")
     missing = [k for k in required if not figures or figures.get(k) in (None, "")]
     if missing:
-        raise MissingSystemFigures(f"refusing to estimate; missing from system of record: {', '.join(missing)}")
+        raise MissingSystemFigures(f"refusing to estimate; missing verified figures: {', '.join(missing)}")
     r = float(figures["annual_rate"]) / 12
     n = int(figures["term_months"])
     p = float(figures["loan_amount"])
