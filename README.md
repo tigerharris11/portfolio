@@ -57,6 +57,6 @@ python -m unittest discover -s tests -v
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/tiger-harris-8a45b3b4) · Chicago, IL · open to operations, analyst and AI-automation roles
+[LinkedIn](https://www.linkedin.com/in/tiger-harris-8a45b3b4) · [YouTube: Dark History Files](https://www.youtube.com/@DarkHistoryFiles_HQ) · Chicago, IL · open to operations, analyst and AI-automation roles
 
 *All data in this repository is synthetic. No client, customer or account data is included.*

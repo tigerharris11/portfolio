@@ -3,7 +3,7 @@
 A daily, mostly unattended pipeline that researches, scripts, narrates, edits, renders and
 packages documentary videos, then **stops for human approval** before anything is published.
 It started as one YouTube channel in May 2026 and now runs three; the channels have passed
-**150,000 views**. The production code is private (it holds API keys and licensed assets).
+**150,000 views** ([Dark History Files on YouTube](https://www.youtube.com/@DarkHistoryFiles_HQ)). The production code is private (it holds API keys and licensed assets).
 This folder documents the design and includes one component rebuilt in the open:
 [`render_queue.py`](render_queue.py).
 
