@@ -7,7 +7,9 @@ daily AI video pipeline that now runs three YouTube channels.
 
 My production code is private because it touches client contact data, financial accounts or API keys.
 **This repo rebuilds the core of each project on synthetic data so you can run it, read it, and
-check it.** Every project runs with plain Python and is covered by a test suite.
+check it.** Every project runs with plain Python, and a test suite runs on every push.
+
+[![tests](https://github.com/tigerharris11/portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/tigerharris11/portfolio/actions/workflows/tests.yml)
 
 ## Projects
 
