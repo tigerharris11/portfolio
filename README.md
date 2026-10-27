@@ -3,7 +3,7 @@
 Operations and data analyst in Chicago. Five years in mortgage lending, reviewing financial files
 and clearing discrepancies against hard deadlines. In 2026 I started building the tools myself:
 a reconciliation-heavy trading-data platform, an AI follow-up assistant for my own past clients, and a
-daily AI video pipeline that now runs three YouTube channels.
+daily AI video pipeline that now runs three YouTube channels. I also launched PayoutTax, a live tax tool for funded traders.
 
 My production code is private because it touches client contact data, financial accounts or API keys.
 **This repo rebuilds the core of each project on synthetic data so you can run it, read it, and
@@ -20,6 +20,20 @@ check it.** Every project runs with plain Python, and a test suite runs on every
 | 03 | [Data job audit](03-data-job-audit) | Catches jobs that "succeed" but write nothing, go stale, or shrink | Python, monitoring, root-cause analysis |
 | 04 | [AI video pipeline architecture](04-ai-pipeline-architecture) | Multi-agent pipeline with a critique loop, rule checks and a human approval gate; shared render queue | AI orchestration, LLM APIs, system design |
 | 05 | [Claude skills and the tune loop](05-claude-skills) | 80 agent skills across 9 project areas, and the loop that turns every correction into a written rule | Prompt and agent design, Claude Code, process improvement |
+
+## Live product
+
+**[PayoutTax](https://payouttax.com)**: a tax set-aside tracker for US traders paid by prop firms. Their payouts arrive
+on a 1099-NEC with nothing withheld, stacked on top of a day-job salary, and most don't know what to save or when
+quarterly payments are due. I found the gap (people searching for it, no trader-side tool), then designed, built and
+launched it (code is private).
+
+- Free calculator: federal tax at the bracket the day job sets, self-employment tax with the Social Security wage
+  base, state estimates, safe-harbor minimums and the "add $X per paycheck to your W-4" alternative
+- Accounts by emailed sign-in link (no passwords), payout and expense logs, and a dashboard on the same engine
+- Built on Cloudflare Workers + D1; tax figures checked against IRS primary sources; 55 automated tests
+- Security by default: hashed one-time tokens, CSRF checks, rate limits, a bot check, and full account deletion
+- SEO guides with IRS sources, structured data, and a marketing plan for short-form video
 
 ## Numbers from the real (private) work
 
